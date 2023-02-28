@@ -1,0 +1,65 @@
+<BoxLayoutWidget>:
+    orientation:'vertical'
+
+    FloatLayout:
+        size_hint_y:.6
+        pos_hint:{'x':0,'y':.4}
+        Image:
+            source:"./background1.jpg"
+            #pos_hint:{"x"0.5,"y":0.7}
+            center_x:self.parent.center_x
+            center_y:self.parent.center_y
+            size:self.size
+            size_hint_x: None
+            size_hint_y: None
+            height: dp(700)
+            width: dp(560)
+            background_color:(255.0,255.0,255.0,0)
+            allow_stretch:True
+
+
+    BoxLayout:
+        size_hint_y:0.11
+        orientation:'horizontal'
+        Button:
+            id: Speak
+            text: 'Speak'
+            on_press: root.StartRecording()
+            font_size:20
+
+
+        Button:
+            id:Listen
+            text: 'Listen'
+            on_press: root.playAudio()
+            font_size:20
+
+        Button:
+            id: Submit
+            text: 'Submit'
+            on_press: root.SubmitRecording()
+            font_size:20
+
+    BoxLayout:
+        size_hint_y:0.1
+        pos_hint:{"x":0.13,"y":0}
+        ProgressBar:
+            size_hint_x:None
+            width: dp(400)
+            value:0
+            id:progress_bar
+            max:100
+
+    GridLayout:
+        size_hint_y:0.15
+        rows:1
+        cols:1
+        
+        height:dp(70)
+        Label:
+            background_color: 0.33,0.019,0.019,1
+            id:bottom_label
+            text: 'What help do you need?'
+            
+
+
